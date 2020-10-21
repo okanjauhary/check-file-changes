@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Change text file
+        run: |
+          echo "Modified" > new.txt
+      - name: Change file in directory
+        run: |
+          echo "Changed" > test_directory/new.txt
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v5
+        id: changed_files
+        with:
+          files: |
+            new.txt
+            test_directory
+      - name: Perform action when files change.
+        if: steps.changed_files.outputs.files_changed == 'true'
+        run: |
+          echo "Do something when files have changed."
