@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'test_directory/**'
+      - 'other_directory/check_me'
+      - 'check_this_file'
 
 jobs:
   node-test:
@@ -13,6 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Linting
+      - name: Check file
         run: |
-          echo "Linting file in test_directory"
+          echo "File checked"
