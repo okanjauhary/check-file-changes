@@ -8,6 +8,7 @@ on:
       - 'test_directory/**'
       - 'other_directory/check_me'
       - 'check_this_file'
+      - 'pattern_*.ext'
 
 jobs:
   node-test:
