@@ -16,10 +16,10 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Update
+      - name: Update file LAST_UPDATE
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo $d > LAST_UPDATED
+          echo $d > LAST_UPDATE
 
       - name: Commit changes
         run: |
